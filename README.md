@@ -3,13 +3,13 @@ NoteShrink
 
 This script makes scans and handwritten notes more beautiful! The script clears synopses and scans from "dirt", improves their readability and reduces the size of the image.
 
-## Exaple
+## Example
 
-#### Input
+#### Input [4.33 Mb]
 
 ![scan1](/examples/Input2.png "Input image. 4.33 Mb")
 
-#### Output
+#### Output [44.1 Kb]
 
 ![scan2](/examples/output2.png "Output image. 44.1 Kb")
 
