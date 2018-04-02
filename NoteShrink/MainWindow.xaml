@@ -1,0 +1,72 @@
+﻿<Window x:Name="W_Main" x:Class="NoteShrink.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:NoteShrink.ViewModels"
+        xmlns:local="clr-namespace:NoteShrink"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="{Binding Height, Mode=TwoWay}" Width="{Binding Width, Mode=TwoWay}" SizeChanged="W_Main_SizeChanged">
+    <Window.DataContext>
+        <viewModels:MainViewModel/>
+    </Window.DataContext>
+    
+    <Grid Name="Main">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <!-- Grid 0 -->
+        <StackPanel Grid.Row="0">
+            <Menu>
+                <MenuItem Name="mFile" Header="Файл">
+                    <MenuItem Name="mFileOpen" Command="{Binding OpenFileCommand}" Header="Открыть..."/>
+                    <MenuItem Name="mFileScan" Command="{Binding ScanCommand}" Header="Сканировать"/>
+                    <MenuItem Name="mFileSave" Command="{Binding SaveFileCommand}" Header="Сохранить"/>
+                    <MenuItem Name="mFilePrint" Command="{Binding PrintCommand}" Header="Печать..."/>
+                    <Separator></Separator>
+                    <MenuItem Name="mFileExit" Header="Выход" Click="mFileExit_Click"/>
+                </MenuItem>
+                <MenuItem Name="mDocument" Header="Документ">
+                    <MenuItem Name="mDocumentConvert" Command="{Binding ConvertImageCommand}" Header="Конвертировать"/>
+                    <Separator></Separator>
+                    <MenuItem Name="mDocumentIncrease" Header="Увеличить" Click="mDocumentIncrease_Click"/>
+                    <MenuItem Name="mDocumentShrink" Header="Уменьшить" Click="mDocumentShrink_Click"/>
+                </MenuItem>
+                <MenuItem Name="mHelp" Header="Справка">
+                    <MenuItem Name="mHelpOpen" Header="Открыть Справку"/>
+                    <Separator></Separator>
+                    <MenuItem Name="mHelpAbout" Header="О программе" Click="mHelpAbout_Click"/>
+                </MenuItem>
+            </Menu>
+            <ToolBar>
+                <Button Name="bOpen" Command="{Binding OpenFileCommand}">Открыть</Button>
+                <Button Name="bScan" Command="{Binding ScanCommand}">Сканировать</Button>
+                <Separator/>
+                <Button Name="bConvert" Command="{Binding ConvertImageCommand}">Конвертировать</Button>
+                <Button Name="bSave" Command="{Binding SaveFileCommand}">Сохранить</Button>
+                <Button Name="bPrint" Command="{Binding PrintCommand}">Печать</Button>
+                <Separator/>
+                <Button Name="bDocumentIncrease" Click="mDocumentIncrease_Click">Увеличить</Button>
+                <Button Name="bDocumentShrink" Click="mDocumentShrink_Click">Уменьшить</Button>
+            </ToolBar>
+        </StackPanel>
+        <!-- Grid 1 -->
+        <Grid Name="ViewPort" Grid.Row="1" Background="Gray">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Canvas 
+                    x:Name="ScannerImage" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    Background="{Binding ImageBrush}"
+                    />
+            </ScrollViewer>
+        </Grid>
+        <!-- Grid 2 -->
+        <Grid Name="Footer" Grid.Row="2">
+            <TextBlock Name="tbStatusBar" Margin="5" Text="{Binding StatusText}"></TextBlock>
+        </Grid>
+    </Grid>
+</Window>
