@@ -10,7 +10,7 @@ This project makes scans and handwritten notes more beautiful! The program clear
     - [ ] Add a pen tool
 	- [ ] Add a text tool
 	- [ ] Add an eraser tool
-- [ ] Add the ability to add more than one page
+- [ ] Add the ability to add more than one page `(30%)`
 - [ ] Add the ability to save to PDF
 - [ ] Add support for multi-thread processing
 - [ ] Translate Python to C/C++ `(25%)`
