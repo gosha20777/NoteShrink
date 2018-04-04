@@ -55,7 +55,55 @@
         </StackPanel>
         <!-- Grid 1 -->
         <Grid Name="ViewPort" Grid.Row="1" Background="Gray">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" MinWidth="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Name="PageView" Grid.Column="0" Grid.Row="0" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="Pages">
+                    <ListBox >
+                        <StackPanel Margin="25,5" Orientation="Vertical">
+                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
+                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">1</Label>
+                        </StackPanel>
+                        <StackPanel Margin="25,5" Orientation="Vertical">
+                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
+                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">2</Label>
+                        </StackPanel>
+                        <StackPanel Margin="25,5" Orientation="Vertical">
+                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
+                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">3</Label>
+                        </StackPanel>
+                        <StackPanel Margin="25,5" Orientation="Vertical">
+                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
+                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">4</Label>
+                        </StackPanel>
+                        <StackPanel Margin="25,5" Orientation="Vertical">
+                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
+                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">5</Label>
+                        </StackPanel>
+                        <StackPanel Margin="25,5" Orientation="Vertical">
+                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
+                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">6</Label>
+                        </StackPanel>
+                    </ListBox>
+                </GroupBox>
+                
+                <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" Background="White">
+                    <Button Width="39" Margin="5,5,2.5,5">Up</Button>
+                    <Button Width="39" Margin="2.5,5,2.5,5">Dwn</Button>
+                    <Button Width="39" Margin="2.5,5,2.5,5">Add</Button>
+                    <Button Width="39" Margin="2.5,5,5,5">Rem</Button>
+                </StackPanel>
+                
+            </Grid>
+            
+            <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <Canvas 
                     x:Name="ScannerImage" 
                     HorizontalAlignment="Stretch" 

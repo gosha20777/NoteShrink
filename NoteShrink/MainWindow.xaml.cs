@@ -39,7 +39,7 @@ namespace NoteShrink
 
         private void W_Main_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            ScannerImage.Width = W_Main.Width - 50;
+            ScannerImage.Width = W_Main.Width - 50 - PageView.Width;
             ScannerImage.Height = W_Main.Height - 110;
         }
 
