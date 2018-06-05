@@ -1,6 +1,6 @@
 NoteShrink
 ==========
-This project makes scans and handwritten notes more beautiful! The program clears synopses and scans from "dirt", improves their readability and reduces the size of the image.
+This project makes scans and handwritten notes more beautiful! The program clears synopses and scans from "dirt", improves their readability and reduces the size of the image **up to 10,000 times(!)**.
 
 ## Tasks
 - [X] Create an algoritm and console app
@@ -32,7 +32,7 @@ This project makes scans and handwritten notes more beautiful! The program clear
 ### Python
 If you want to use the console version you may use only `Python` module. You can compile it to win32 `EXE` file with `cx_Freeze` ([How convert a .py to .exe](https://stackoverflow.com/questions/41570359/how-can-i-convert-a-py-to-exe-for-python)
 
-### Requirements for python
+#### Requirements for python
 
  - Python 3
  - NumPy 1.10 or later
@@ -40,10 +40,38 @@ If you want to use the console version you may use only `Python` module. You can
  - ImageMagick
  - Image module Pillow
 
-### Usage
+#### Usage
 
 ```
 ./noteshrink.py IMAGE1 [IMAGE2 ...]
+```
+or
+```
+convert scanned, hand-written notes to PDF
+
+positional arguments:
+  IMAGE               files to convert
+
+optional arguments:
+  -h, --help          show this help message and exit
+  -q                  reduce program output
+  -b BASENAME         output PNG filename base (default page)
+  -o PDF              output PDF filename (default output.pdf)
+  -v PERCENT          background value threshold % (default 25)
+  -s PERCENT          background saturation threshold % (default 20)
+  -n NUM_COLORS       number of output colors (default 8)
+  -p PERCENT          % of pixels to sample (default 5)
+  -w                  make background white
+  -g                  use one global palette for all pages
+  -S                  do not saturate colors
+  -K                  keep filenames ordered as specified; use if you *really*
+                      want IMG_10.png to precede IMG_2.png
+  -P POSTPROCESS_CMD  set postprocessing command (see -O, -C, -Q)
+  -e POSTPROCESS_EXT  filename suffix/extension for postprocessing command
+  -O                  same as -P "optipng -silent %i -out %o"
+  -C                  same as -P "pngcrush -q %i %o"
+  -Q                  same as -P "pngquant --ext %e %i"
+  -c COMMAND          PDF command (default "convert %i %o")
 ```
 
 ### CShrp
