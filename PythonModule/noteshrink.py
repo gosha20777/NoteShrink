@@ -573,6 +573,7 @@ def notescan_main(options):
         if not options.quiet:
             print('  done\n')
 
+# UNCOMMENT IF YOU WANT TO USE PDF CONVERTION
 #    emit_pdf(outputs, options)
 
 ######################################################################
