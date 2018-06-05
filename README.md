@@ -27,10 +27,12 @@ This project makes scans and handwritten notes more beautiful! The program clear
 
 ![scan2](/examples/output2.png "Output image. 44.1 Kb")
 
+See more examples at [here](/examples)
+
 ## Building
 
 ### Python
-If you want to use the console version you may use only `Python` module. You can compile it to win32 `EXE` file with `cx_Freeze` ([How convert a .py to .exe](https://stackoverflow.com/questions/41570359/how-can-i-convert-a-py-to-exe-for-python)
+If you want to use the console version you may use only `Python` module. You can compile it to win32 `EXE` file with `cx_Freeze` ([How convert a .py to .exe](https://stackoverflow.com/questions/41570359/how-can-i-convert-a-py-to-exe-for-python)). You may find a python script [here](/PythonModule/noteshrink.py).
 
 #### Requirements for python
 
