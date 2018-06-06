@@ -66,31 +66,13 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <GroupBox Header="Pages">
-                    <ListBox >
-                        <StackPanel Margin="25,5" Orientation="Vertical">
-                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
-                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">1</Label>
-                        </StackPanel>
-                        <StackPanel Margin="25,5" Orientation="Vertical">
-                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
-                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">2</Label>
-                        </StackPanel>
-                        <StackPanel Margin="25,5" Orientation="Vertical">
-                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
-                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">3</Label>
-                        </StackPanel>
-                        <StackPanel Margin="25,5" Orientation="Vertical">
-                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
-                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">4</Label>
-                        </StackPanel>
-                        <StackPanel Margin="25,5" Orientation="Vertical">
-                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
-                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">5</Label>
-                        </StackPanel>
-                        <StackPanel Margin="25,5" Orientation="Vertical">
-                            <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
-                            <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">6</Label>
-                        </StackPanel>
+                    <ListBox>
+                        <DataTemplate>
+                            <StackPanel Margin="25,5" Orientation="Vertical">
+                                <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
+                                <Label VerticalContentAlignment="Center" HorizontalAlignment="Center">1</Label>
+                            </StackPanel>
+                        </DataTemplate>
                     </ListBox>
                 </GroupBox>
                 
