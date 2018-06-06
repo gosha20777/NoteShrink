@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\ConvertImageService.cs" />
     <Compile Include="Models\FileSystemService.cs" />
+    <Compile Include="Models\Page.cs" />
     <Compile Include="Models\PrintService.cs" />
     <Compile Include="Models\ScannerImageConverter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

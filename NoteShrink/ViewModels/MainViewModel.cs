@@ -1,6 +1,7 @@
 ﻿using NoteShrink.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,8 @@ namespace NoteShrink.ViewModels
             get { return _height; }
             set { _height = value; NotifyPropertyChanged("Height"); }
         }
+
+        public ObservableCollection<Page> Pages { get; set; }
         public ImageBrush ImageBrush
         {
             get { return _imageBrush; }
@@ -39,6 +42,11 @@ namespace NoteShrink.ViewModels
         {
             get { return _statusText; }
             set { _statusText = value; NotifyPropertyChanged("StatusText"); }
+        }
+
+        public MainViewModel()
+        {
+            Pages = new ObservableCollection<Page>();
         }
         #region Scan
         // Command for scanning
@@ -122,6 +130,7 @@ namespace NoteShrink.ViewModels
             {
                 _image = fileSystem.LoadFile();
                 ImageBrush = new ImageBrush(_image) { Stretch = Stretch.Uniform };
+                Pages.Add(new Page { ImageBrush = ImageBrush });
             }
             catch (Exception ex)
             {

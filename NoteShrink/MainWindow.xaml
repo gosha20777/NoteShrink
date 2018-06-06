@@ -66,7 +66,7 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <GroupBox Header="Pages">
-                    <ListBox>
+                    <ListBox x:Name="PagesList">
                         <DataTemplate>
                             <StackPanel Margin="25,5" Orientation="Vertical">
                                 <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
