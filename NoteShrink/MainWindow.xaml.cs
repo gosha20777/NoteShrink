@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,15 @@ namespace NoteShrink
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<ImageBrush> observable;
         public MainWindow()
         {
             InitializeComponent();
+            
+            
+            observable = new ObservableCollection<ImageBrush>();
+            observable.Add(new ImageBrush());
+            PagesList.ItemsSource = observable;
         }
 
         private void mDocumentIncrease_Click(object sender, RoutedEventArgs e)
