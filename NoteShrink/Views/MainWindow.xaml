@@ -1,0 +1,89 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:NoteShrink.ViewModels;assembly=NoteShrink"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="NoteShrink.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="NoteShrink">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid Name="Main">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0">
+            <Menu>
+                <MenuItem Name="mFile" Header="Файл">
+                    <MenuItem Name="mFileOpen" Header="Открыть..."/>
+                    <MenuItem Name="mFileSave" Header="Сохранить"/>
+                    <Separator></Separator>
+                    <MenuItem Name="mFileExit" Header="Выход"/>
+                </MenuItem>
+                <MenuItem Name="mDocument" Header="Документ">
+                    <MenuItem Name="mDocumentConvert" Header="Конвертировать"/>
+                    <Separator></Separator>
+                    <MenuItem Name="mDocumentIncrease" Header="Увеличить"/>
+                    <MenuItem Name="mDocumentShrink" Header="Уменьшить"/>
+                </MenuItem>
+            </Menu>
+            <ToolTip>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="bOpen" Command="{Binding OpenFileCommand}">Открыть</Button>
+                    <Button Name="bConvert" Command="{Binding ConvertImageCommand}">Конвертировать</Button>
+                    <Button Name="bSave" Command="{Binding SaveFileCommand}">Сохранить</Button>
+                    <Button Name="bDocumentIncrease">Увеличить</Button>
+                    <Button Name="bDocumentShrink">Уменьшить</Button>
+                </StackPanel>
+            </ToolTip>
+        </StackPanel>
+        
+        <Grid Name="ViewPort" Grid.Row="1" Background="Gray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" MinWidth="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Name="PageView" Grid.Column="0" Grid.Row="0" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                
+                <ListBox Grid.Column="0" Grid.Row="0"
+                         x:Name="ImageList">
+                    <ListBox.DataTemplates>
+                        <DataTemplate>
+                            <StackPanel Margin="25,5" Orientation="Vertical">
+                                <Canvas Width="100" Height="150" HorizontalAlignment="Stretch" Background="{Binding ImageBrush}"/>
+                                <TextBlock Margin="0,5" HorizontalAlignment="Center" Text="{Binding Name}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.DataTemplates>
+                </ListBox>
+                
+            </Grid>
+            
+            <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Canvas 
+                    x:Name="ScannerImage" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    Background="{Binding ImageBrush}"
+                    />
+            </ScrollViewer>
+            
+        </Grid>
+        
+        <Grid Name="Footer" Grid.Row="2">
+            <TextBlock Name="tbStatusBar" Margin="5" Text="{Binding StatusText}"></TextBlock>
+        </Grid>
+    </Grid>
+
+</Window>
