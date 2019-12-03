@@ -81,5 +81,8 @@ optional arguments:
  2. Build C# project
  3. Copy a Python `exe`, `dll` file and `lib` folder to `\bin\Debug\` or `\bin\Release\` directory (I'm sorry for this, but I promise I will fix it soon).
 
-### Requirements for CShrp
+### Requirements for CSharp
  - Microsoft Visual C++ 2017 Redistributable Package
+
+## license
+This project based on https://github.com/mzucker/noteshrink
